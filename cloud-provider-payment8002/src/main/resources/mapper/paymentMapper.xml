@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+
+<mapper namespace="com.sykj.springcloud.dao.PayDao">
+
+
+    <insert id="create" parameterType="com.sykj.springcloud.entities.Payment" useGeneratedKeys="true" keyProperty="pid">
+                  insert  into payment(serial) value (#{serial})
+    </insert>
+
+    <resultMap id="BaseResultMap" type="com.sykj.springcloud.entities.Payment">
+        <id column="pid" property="pid" jdbcType="BIGINT"></id>
+        <id column="serial" property="serial" jdbcType="VARCHAR"></id>
+    </resultMap>
+
+    <select id="getPaymentByid"  resultMap="BaseResultMap">
+
+          select  * from payment where pid=#{pid}
+    </select>
+
+
+</mapper>
+
+
